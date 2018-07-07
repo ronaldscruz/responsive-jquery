@@ -1,2 +1,2 @@
 # responsive-jquery
-Site with a dropdown menu and swing animations
+Site with a dropdown menu (mobile) and swing animations

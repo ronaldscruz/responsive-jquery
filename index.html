@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <!-- meta de extrema importancia para responsividade | não permite que o usuario redimensione o site-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>rsCruz | Responsivo</title>
+    <link rel="stylesheet" href="css/master.css">
+    <script type="text/javascript" src="script/jquery.js"></script>
+    <script type="text/javascript">
+    //quando o documento já estiver carregado, iniciar estas funções
+      $(document).ready(function(){
+
+        //$(onde houver classe menu e um href).on(pegar nome do href a partir do click e executar a função)
+        $('#menu a[href^="#"]').on('click',function(e){
+          e.preventDefault();                 //nao executar varias vezes quando der varios cliques
+          var target=this.hash;               //target representa esta página (this.hash)
+          $target = $(target);                //pagina em si
+          var gorgon = $target.offset().top;  //offset a partir do topo (pega as medidas da página, localizar o href e deslizar até ele)
+          $('html, body').stop().animate({    //animação scrollTop que dura 900ms do tipo swing
+            'scrollTop' : gorgon
+          }, 900, 'swing',function(){
+            window.location.hash = target;
+          });
+        });
+
+        //verificar seu local da página para fixar ou não o menu
+        var scrollPos = 0;
+        $(document).scroll(function(){
+          scrollPos = $(this).scrollTop();
+          if(scrollPos > 28){
+            $('#menu').css('position','fixed');
+          }else{
+            $('#menu').css('position','relative');
+          }
+
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header id="banner-top">
+      <div id="menu">
+        <nav>
+          <img src="img/mobile_menu.png" alt="Menu" id="mobile_menu">
+          <script>
+
+            $('#mobile_menu').click(function(){
+              $('ul').slideToggle();
+            });
+
+            $('#mobile_menu').mouseleave(function(){
+              $('ul').slideUp();
+            });
+
+          </script>
+          <img src="img/logo.png" alt="RS Cruz" id="logo">
+          <ul>
+            <a href="#banner-top"><li>PÁGINA INICIAL</li></a>
+            <a href="#servicos"><li>SERVIÇOS      </li></a>
+            <a href="#portfolio"><li>PORTFÓLIO     </li></a>
+            <a href="#"><li>SOBRE         </li></a>
+            <a href="#"><li>CONTATO       </li></a>
+          </ul>
+        </nav>
+      </div>
+      </div>
+    </header>
+    <section id="servicos">
+      <h1>Serviços</h1>
+      Conheça nossos serviços e entre em contato.
+      <br>
+      <article class="black-box" style="
+        background: url('img/01.jpg');
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+      "></article>
+      <article class="black-box" style="
+        background: url('img/02.jpg');
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+      "></article>
+      <article class="black-box" style="
+        background: url('img/03.jpg');
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+      "></article>
+      <article class="black-box" style="
+        background: url('img/04.jpg');
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+      "></article>
+    </section>
+    <section id="portfolio">
+      <h1>Portfólio</h1>
+      Conheça um pouco do nosso trabalho.
+      <br>
+      <article class="black-box" style="
+        background: url('img/aa.jpg');
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+      "></article>
+      <article class="black-box" style="
+        background: url('img/bb.jpg');
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+      "></article>
+      <article class="black-box" style="
+        background: url('img/cc.jpg');
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+      "></article>
+      <article class="black-box" style="
+        background: url('img/dd.jpg');
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+      "></article>
+    </section>
+    <footer>
+      Ronald S. Cruz © Copyright 2018
+    </footer>
+  </body>
+</html>
